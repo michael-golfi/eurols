@@ -1,0 +1,26 @@
+.container-fluid {
+  margin-bottom: 150px;
+}
+
+.search{
+    width:100%; 
+    margin: 0px;
+    outline: black;
+}
+
+.search /deep/ label {
+  color: grey;
+}
+
+.search /deep/ .md-input-underline {
+  border-color: grey;
+}
+
+md-card {
+    margin-bottom: 20px;
+    min-width: 250px;
+}
+
+md-card-header {
+  margin-bottom: 0px;
+}
