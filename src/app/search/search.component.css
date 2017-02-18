@@ -24,3 +24,12 @@ md-card {
 md-card-header {
   margin-bottom: 0px;
 }
+
+.facet-title /deep/ div {
+  margin: 0;
+}
+
+li {
+  list-style-type: none;
+  margin-left: 8px;
+}

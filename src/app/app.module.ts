@@ -14,6 +14,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { SearchModule } from './search/search.module';
 import { WorklistModule } from './worklist/worklist.module';
 import { TransactionModule} from './transaction/transaction.module';
+import { DetailsModule } from './details/details.module';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 
 @NgModule({
@@ -32,6 +33,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     SearchModule,
     TransactionModule,
     WorklistModule,
+    DetailsModule,
 
     AppRoutingModule,
   ],

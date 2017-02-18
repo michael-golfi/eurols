@@ -1,0 +1,94 @@
+<md-card>
+  <md-card-header>
+    <md-card-title><h2>{{ lift.make }} {{ lift.model }}</h2></md-card-title>
+  </md-card-header>
+
+  <md-card-content>
+
+    <div class="container-fluid">
+      <div class="row">
+
+        <div class="col-md-6 col-xs-12 col-lg-6">
+          <img md-card-image class="md-card-image" src="assets/images/lift.png">
+        </div>
+
+        <div class="col-md-3 col-xs-12 col-lg-3">
+
+          <md-list>
+            <h3 md-subheader>Details</h3>
+
+            <md-list-item>
+              <h4 md-line>Year:</h4>
+              <p md-line> {{ lift.year }} </p>
+            </md-list-item>
+
+            <md-list-item>
+              <h4 md-line>Serial Number:</h4>
+              <p md-line> {{ lift.serialNumber }} </p>
+            </md-list-item>
+
+            <md-list-item>
+              <h4 md-line>Type:</h4>
+              <p md-line> {{ lift.type }} </p>
+            </md-list-item>
+
+            <md-list-item>
+              <h4 md-line>Purchase Date:</h4>
+              <p md-line> {{ lift.purchased.purchaseDate | date}} </p>
+            </md-list-item>
+
+            <md-list-item>
+              <h4 md-line>Purchase Price:</h4>
+              <p md-line> {{ lift.purchased.purchasePrice }} </p>
+            </md-list-item>
+
+            <md-list-item>
+              <h4 md-line>Purchased From:</h4>
+              <p md-line> {{ lift.purchased.purchasedFrom | default }} </p>
+            </md-list-item>
+          </md-list>
+        </div>
+
+        <div class="col-md-3 col-xs-12 col-lg-3">
+
+          <md-list>
+            <h3 md-subheader>Specifications</h3>
+
+            <md-list-item>
+              <h4 md-line>Approx Lowered Height:</h4>
+              <p md-line> {{ lift.specifications.approximateLoweredHeight | default }} </p>
+            </md-list-item>
+
+            <md-list-item>
+              <h4 md-line>Approx Max Height:</h4>
+              <p md-line> {{ lift.specifications.approximateMaxHeight | default }} </p>
+            </md-list-item>
+
+            <md-list-item>
+              <h4 md-line>Approx Width:</h4>
+              <p md-line> {{ lift.specifications.approximateWidth | default }} </p>
+            </md-list-item>
+
+            <md-list-item>
+              <h4 md-line>Approx Length:</h4>
+              <p md-line> {{ lift.specifications.approximateLength | default }} </p>
+            </md-list-item>
+
+            <md-list-item>
+              <h4 md-line>Capacity:</h4>
+              <p md-line> {{ lift.specifications.capacity }} </p>
+            </md-list-item>
+
+            <md-list-item>
+              <h4 md-line>Mast Stage:</h4>
+              <p md-line> {{ lift.specifications.mastStage }} </p>
+            </md-list-item>
+
+          </md-list>
+        </div>
+      </div>
+    </div>
+
+  </md-card-content>
+
+</md-card>

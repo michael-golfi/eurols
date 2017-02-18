@@ -11,9 +11,9 @@ import { Person } from './person';
 @Component({
   selector: 'app-worklist',
   styleUrls: [
-    './css/worklist.component.css',
-    './css/icons.css',
-    './css/material.scss'
+    './worklist.component.css',
+    './style/icons.css',
+    './style/material.scss'
   ],
   encapsulation: ViewEncapsulation.None,
   template: `   

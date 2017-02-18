@@ -5,17 +5,19 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/switchMap';
+
 import { Subject } from 'rxjs/Subject';
 import { Transaction } from './transaction.d';
 
 @Component({
   selector: 'app-transaction',
-  styleUrls: [
-    './css/worklist.component.css',
-    './css/icons.css',
-    './css/material.scss'
-  ],
   encapsulation: ViewEncapsulation.None,
+  styleUrls: [
+    './worklist.component.css',
+    './style/icons.css',
+    './style/material.scss'
+  ],
+  
   template: `   
     <div class="container-fluid">
 
