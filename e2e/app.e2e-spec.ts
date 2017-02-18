@@ -1,10 +1,10 @@
-import { CsrhPage } from './app.po';
+import { EurolsPage } from './app.po';
 
-describe('csrh App', function() {
-  let page: CsrhPage;
+describe('Eurols App', function() {
+  let page: EurolsPage;
 
   beforeEach(() => {
-    page = new CsrhPage();
+    page = new EurolsPage();
   });
 
   it('should display message saying app works', () => {
