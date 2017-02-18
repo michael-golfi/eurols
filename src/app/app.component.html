@@ -1,12 +1,4 @@
-<toolbar>
-
-  <div (click)="sidenav.toggle()" class="logo-button" logo>
-    <div class="oval"></div>
-    <div class="oval"></div>
-    <div class="oval" style="margin-bottom: 0"></div>
-  </div>
-
-</toolbar>
+<toolbar><div (click)="sidenav.toggle()" class="logo-button" logo><md-icon>menu</md-icon></div></toolbar>
 
 <md-sidenav-layout class="left-navigation">
 
@@ -23,7 +15,7 @@
 
   </md-sidenav>
 
-  <div class="content">
+  <div class="content container-fluid">
     <router-outlet></router-outlet>
   </div>
 </md-sidenav-layout>

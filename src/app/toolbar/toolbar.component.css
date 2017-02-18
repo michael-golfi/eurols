@@ -1,3 +1,27 @@
+.logo {
+  display: table-cell;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.logo-button {
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 4px;
+    padding: 12px;
+    overflow: hidden;
+    vertical-align: middle;
+    cursor: pointer;
+    height: 24px;
+    width: 24px;
+    -webkit-user-select: none;
+}
+
+.title {
+  padding-left: 16px;
+}
+
 .nav-text { 
   margin-left: 20px;
 }

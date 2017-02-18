@@ -14,15 +14,16 @@ md-sidenav {
   -webkit-box-shadow: none !important;
 	-moz-box-shadow: none !important;
 	box-shadow: none !important;
-
-  transition: margin-left .25s cubic-bezier(0.4,0.0,0.2,1),visibility 0s linear 0s;
+/*
+  transition: margin-left 2s cubic-bezier(.17,.67,1,.39) !important;
+  -webkit-transition: margin-left 2s cubic-bezier(.17,.67,1,.39) !important;*/
 
   width: 200px;
-  padding: 15px;
+  padding: 5px;
 }
 
 .content {
-  padding: 15px;
+  padding-top: 15px;
 }
 
 .logo-button {

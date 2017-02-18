@@ -1,3 +1,9 @@
 @import '~https://fonts.googleapis.com/icon?family=Material+Icons';
 @import 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic';
 @import 'assets/css/bootstrap.min.css';
+
+.container-fluid {
+    margin-bottom: 100px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
