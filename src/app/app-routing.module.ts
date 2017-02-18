@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SearchComponent } from './search/search.component';
 import { TransactionComponent } from './transaction/transaction.component';
-import { WorklistComponent } from './worklist/worklist.component';
+import { CustomerComponent } from './customer/customer.component';
 import { DetailsComponent } from './details/details.component';
 
 const routes: Routes = [
@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'inventory', component: SearchComponent },
   { path: 'transaction', component: TransactionComponent },
-  { path: 'customer', component: WorklistComponent },
+  { path: 'customer', component: CustomerComponent },
 
   // Non-Visible
   { path: 'forklift/:serialNumber', component: DetailsComponent },
@@ -26,6 +26,4 @@ const routes: Routes = [
   providers: []
 })
 
-export class AppRoutingModule { 
-  
-}
+export class AppRoutingModule { }

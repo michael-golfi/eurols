@@ -9,9 +9,9 @@ import { Subject } from 'rxjs/Subject';
 import { Person } from './person';
 
 @Component({
-  selector: 'app-worklist',
+  selector: 'app-customer',
   styleUrls: [
-    './worklist.component.css',
+    './customer.component.css',
     './style/icons.css',
     './style/material.scss'
   ],
@@ -41,7 +41,7 @@ import { Person } from './person';
   `
 })
 
-export class WorklistComponent implements OnInit {
+export class CustomerComponent implements OnInit {
   private filterStream = new Subject<string>();
   rows: Observable<Person[]>;
 
