@@ -18,11 +18,11 @@
     </button>
 
   <md-menu #menu="mdMenu">
-    <button md-menu-item>
+    <button md-menu-item *ngIf="!loggedIn" (click)="login()">
         <md-icon>fingerprint</md-icon>
         <span>Login</span>
       </button>
-    <button md-menu-item>
+    <button md-menu-item *ngIf="loggedIn" (click)="logout()">
         <md-icon>exit_to_app</md-icon>
         <span>Logout</span>
       </button>
