@@ -1,36 +1,43 @@
-<div class="col-md-12 col-xs-12 col-lg-12">
+<div class="row">
 
-  <md-card>
-    <md-card-header>
-      <md-input-container class="search">
-        <input md-input #term placeholder="Search" [(ngModel)]="query" (keyup)="search(query)">
-      </md-input-container>
-      <button md-icon-button class="search-button"><md-icon>search</md-icon></button>
-    </md-card-header>
-  </md-card>
+  <div class="col-md-12 col-xs-12 col-lg-12">
 
-</div>
+    <md-card class="search-card">
+      <md-card-header>
+        <md-input-container class="search">
+          <input mdInput #term placeholder="Search" [(ngModel)]="query" (keyup)="search(query)">
+        </md-input-container>
+        <button md-icon-button class="search-button"><md-icon>search</md-icon></button>
+      </md-card-header>
+    </md-card>
 
-<div class="col-xs-12 col-md-3 col-lg-2">
-
-  <md-card *ngFor="let facet of facets" class="facet">
-    <md-card-header class="facet-title">{{facet.name}}</md-card-header>
-    <md-card-content>
-      <li *ngFor="let option of facet.options">
-        <a>{{ option }}</a>
-      </li>
-    </md-card-content>
-  </md-card>
+  </div>
 
 </div>
+<div class="row come-in">
 
-<div class="col-xs-12 col-md-9 col-lg-6">
+  <div class="col-lg-3 col-md-3 col-ms-3 col-sm-3 col-xs-12">
 
-  <md-card *ngFor="let item of results | async">
-    <md-card-header><a>{{ item }}</a></md-card-header>
-    <md-card-content>
-      Some Description
-    </md-card-content>
-  </md-card>
+    <md-card *ngFor="let facet of facets" class="facet">
+      <md-card-header class="facet-title">{{facet.name}}</md-card-header>
+      <md-card-content>
+        <li *ngFor="let option of facet.options">
+          <a>{{ option }}</a>
+        </li>
+      </md-card-content>
+    </md-card>
+
+  </div>
+
+  <div class="col-lg-9 col-md-9 col-ms-9 col-sm-9 col-xs-12">
+
+    <md-card class="card" *ngFor="let forklift of forklifts | async">
+      <md-card-title class="underline" [style.border-bottom-color]="getAvailableColor(forklift.serialNumber)">
+        <a [routerLink]="['/forklift', forklift.serialNumber]">{{ forklift.make }} {{ forklift.model }}</a>
+      </md-card-title>
+      <img md-card-image [alt]="forklift.model" class="mat-card-image" src="assets/images/lift.png">
+    </md-card>
+
+  </div>
 
 </div>

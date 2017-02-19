@@ -13,8 +13,6 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 
 import { DashboardModule } from './dashboard/dashboard.module';
 import { SearchModule } from './search/search.module';
-import { CustomerModule } from './customer/customer.module';
-import { TransactionModule } from './transaction/transaction.module';
 import { DetailsModule } from './details/details.module';
 import { SharedModule } from './shared/shared.module';
 
@@ -31,13 +29,9 @@ import { AdalModule, AdalService } from 'ng2-adal/core';
     FormsModule,
     HttpModule,
 
-    AdalModule,
-
     // Declare modules needed.
     DashboardModule,
     SearchModule,
-    TransactionModule,
-    CustomerModule,
     DetailsModule,
     SharedModule,
 

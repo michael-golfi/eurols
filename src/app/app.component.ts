@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AdalService } from 'ng2-adal/core';
 
 import { SecretService } from './shared/secret.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-root',
@@ -10,12 +11,13 @@ import { SecretService } from './shared/secret.service';
 })
 
 export class AppComponent implements OnInit {
+  maxMediumWidth = 991;
+  isSideNavOpen = true;
+  sideNavMode = "side"
 
   routes = [
     { path: '/dashboard', name: 'Dashboard', icon: 'dashboard' },
     { path: '/inventory', name: 'Inventory', icon: 'assignment' },
-    { path: '/transaction', name: 'Transactions', icon: 'credit_card' },
-    { path: '/customer', name: 'Customers', icon: 'people' },
   ];
 
   ngOnInit(): void {
@@ -25,6 +27,11 @@ export class AppComponent implements OnInit {
 
   constructor(private adalService: AdalService, private secretService: SecretService) {
     this.adalService.init(this.secretService.adalConfig);
+    Observable.fromEvent(window, 'resize')
+      .debounceTime(200)
+      .subscribe(size => {
+        this.isSideNavOpen = (window.innerWidth > this.maxMediumWidth)
+        this.sideNavMode = (window.innerWidth > this.maxMediumWidth) ? 'side' : 'over'
+      })
   }
-
 }

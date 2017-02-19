@@ -7,47 +7,48 @@ import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/switchMap';
 import { Subject } from 'rxjs/Subject';
 
-import { SearchService } from './search.service';
 import { ActivatedRoute, Router } from '@angular/router';
+
+import { Forklift, Color, TireType } from '../shared/types/forklift';
+import { ForkliftService } from '../shared/forklift.service';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css'],
-  providers: [SearchService]
+  providers: []
 })
 
 export class SearchComponent {
   private searchTermStream = new Subject<string>();
 
-  results: Observable<string[]>;
+  forklifts: Observable<Forklift[]>;
   query: string;
 
   facets = [
-    { "name": "Brand", "options": ["Honda", "Toyota"] },
-    { "name": "Capacity", "options": ["5 Tons", "10 Tons"] },
+    { "name": "Available", "options": ["Yes", "No"] },
+    { "name": "Brand", "options": ["Toyota", "Crown", "Raymond", "Hyster", "Yale", "BT", "Nissan", "PMX"] },
+    { "name": "Capacity", "options": ["3000 Ibs", "5000 Ibs", "10,000 Ibs", "15,000 Ibs", "20,000 Ibs", "25,000 Ibs"] },
     { "name": "Power Source", "options": ["Internal Combustion", "Electric"] },
     { "name": "Form Factor", "options": ["Manual", "Fork Lift", "Pallet Jack", "Stacker", "Reach Truck", "Order Picker", "Tow Tracker", "Container Handler", "Tug Cart"] },
     { "name": "Tires", "options": ["Cushion", "Pneumatic"] }
   ];
 
-  constructQuery(query: String, ) {
-
-  };
-
-  constructor(private wikipediaService: SearchService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private forkliftService: ForkliftService, private route: ActivatedRoute, private router: Router) { }
 
   search = (query: string) => this.searchTermStream.next(query);
 
   ngOnInit() {
-    this.results = this.searchTermStream
+    this.forklifts = this.searchTermStream
       .debounceTime(300)
       .distinctUntilChanged()
-      .switchMap((term: string) => this.wikipediaService.search(term));
+      .map((term: string) => this.forkliftService.getForklifts());
   }
 
   ngAfterViewInit() {
     this.query = this.route.snapshot.queryParams['q'];
     this.search(this.query);
   }
+
+  getAvailableColor = (serialNumber) => this.forkliftService.isAvailable(serialNumber) ? "green" : "red";
 }

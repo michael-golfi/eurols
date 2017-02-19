@@ -5,3 +5,60 @@
 md-card-header {
     margin-top: 0;
 }
+
+.underline {
+    border-bottom: 3px solid currentColor;
+}
+
+.card {
+    width: 300px;
+    margin: 8px;
+}
+
+.demo-grid-list p {
+  margin: 16px;
+}
+
+.demo-grid-list .demo-basic-list .mat-grid-tile {
+  background: rgba(0, 0, 0, 0.32);
+}
+
+.demo-grid-list img {
+  width: 350px;
+}
+
+/* Animation SCSS */
+.come-in {
+  -webkit-transform: translateY(150px);
+      -ms-transform: translateY(150px);
+          transform: translateY(150px);
+  -webkit-animation: come-in 0.8s ease forwards;
+          animation: come-in 0.8s ease forwards;
+}
+
+.come-in:nth-child(odd) {
+  -webkit-animation-duration: 0.6s;
+          animation-duration: 0.6s;
+}
+
+.already-visible {
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-animation: none;
+          animation: none;
+}
+
+@-webkit-keyframes come-in {
+  to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes come-in {
+  to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}

@@ -1,94 +1,87 @@
-<md-card>
-  <md-card-header>
-    <md-card-title><h2>{{ lift.make }} {{ lift.model }}</h2></md-card-title>
-  </md-card-header>
+<div class="row come-in">
+  <div class="col-lg-4 col-md-6 col-sm-6 col-ms-6">
 
-  <md-card-content>
+    <md-card class="card">
+      <md-card-title class="underline" [style.border-bottom-color]="getAvailableColor()">{{ lift.make }} {{ lift.model }}</md-card-title>
+      <img md-card-image [alt]="lift.model" class="md-card-image" src="assets/images/lift.png">
 
-    <div class="container-fluid">
-      <div class="row">
+      <md-card-actions>
+        <button md-button>Edit</button>
+        <button md-button (click)="toggleAvailability()">
+        <span> {{ lift.available === true ? "Out" : "In" }}</span>
+      </button>
+      </md-card-actions>
+    </md-card>
 
-        <div class="col-md-6 col-xs-12 col-lg-6">
-          <img md-card-image class="md-card-image" src="assets/images/lift.png">
-        </div>
+  </div>
 
-        <div class="col-md-3 col-xs-12 col-lg-3">
+  <div class="col-lg-4 col-md-6 col-sm-6 col-ms-6">
 
-          <md-list>
-            <h3 md-subheader>Details</h3>
+    <md-card class="card">
+      <md-card-title>Details</md-card-title>
+      <md-card-content>
 
-            <md-list-item>
-              <h4 md-line>Year:</h4>
-              <p md-line> {{ lift.year }} </p>
-            </md-list-item>
+        <p><b>Year:</b> {{ lift.year }}</p>
+        <p><b>Serial Number:</b> {{ lift.serialNumber }}</p>
+        <p><b>Type:</b> {{ lift.type }}</p>
 
-            <md-list-item>
-              <h4 md-line>Serial Number:</h4>
-              <p md-line> {{ lift.serialNumber }} </p>
-            </md-list-item>
+      </md-card-content>
+    </md-card>
 
-            <md-list-item>
-              <h4 md-line>Type:</h4>
-              <p md-line> {{ lift.type }} </p>
-            </md-list-item>
+  </div>
 
-            <md-list-item>
-              <h4 md-line>Purchase Date:</h4>
-              <p md-line> {{ lift.purchased.purchaseDate | date}} </p>
-            </md-list-item>
+  <div class="col-lg-4 col-md-6 col-sm-6 col-ms-6">
 
-            <md-list-item>
-              <h4 md-line>Purchase Price:</h4>
-              <p md-line> {{ lift.purchased.purchasePrice }} </p>
-            </md-list-item>
+    <md-card class="card">
+      <md-card-title>Specifications</md-card-title>
+      <md-card-content>
 
-            <md-list-item>
-              <h4 md-line>Purchased From:</h4>
-              <p md-line> {{ lift.purchased.purchasedFrom | default }} </p>
-            </md-list-item>
-          </md-list>
-        </div>
+        <p><b>Approx Lowered Height:</b> {{ lift.specifications.approximateLoweredHeight }} in</p>
+        <p><b>Approx Max Height:</b> {{ lift.specifications.approximateMaxHeight }} in</p>
+        <p><b>Approx Width:</b> {{ lift.specifications.approximateWidth }} in</p>
+        <p><b>Approx Length:</b> {{ lift.specifications.approximateLength }} in</p>
+        <p><b>Capacity:</b> {{ lift.specifications.capacity }} Ibs</p>
+        <p><b>Mast Stage:</b> {{ lift.specifications.mastStage }}</p>
 
-        <div class="col-md-3 col-xs-12 col-lg-3">
+      </md-card-content>
+    </md-card>
 
-          <md-list>
-            <h3 md-subheader>Specifications</h3>
+  </div>
 
-            <md-list-item>
-              <h4 md-line>Approx Lowered Height:</h4>
-              <p md-line> {{ lift.specifications.approximateLoweredHeight | default }} </p>
-            </md-list-item>
+  <div class="col-lg-4 col-md-6 col-sm-6 col-ms-6">
 
-            <md-list-item>
-              <h4 md-line>Approx Max Height:</h4>
-              <p md-line> {{ lift.specifications.approximateMaxHeight | default }} </p>
-            </md-list-item>
+    <md-card class="card">
+      <md-card-title>Tires</md-card-title>
+      <md-card-content>
 
-            <md-list-item>
-              <h4 md-line>Approx Width:</h4>
-              <p md-line> {{ lift.specifications.approximateWidth | default }} </p>
-            </md-list-item>
+        <p><b>Front:</b>{{ lift.tires.frontSize.outsideDiameter }}x{{ lift.tires.frontSize.width }}x{{ lift.tires.frontSize.insideDiameter
+          }}
+        </p>
+        <p><b>Back:</b>{{ lift.tires.backSize.outsideDiameter }}x{{ lift.tires.backSize.width }}x{{ lift.tires.backSize.insideDiameter
+          }}
+        </p>
 
-            <md-list-item>
-              <h4 md-line>Approx Length:</h4>
-              <p md-line> {{ lift.specifications.approximateLength | default }} </p>
-            </md-list-item>
+        <p><b>Color:</b> {{ lift.tires.color }}</p>
+        <p><b>Type:</b> {{ lift.tires.type }}</p>
 
-            <md-list-item>
-              <h4 md-line>Capacity:</h4>
-              <p md-line> {{ lift.specifications.capacity }} </p>
-            </md-list-item>
+      </md-card-content>
+    </md-card>
 
-            <md-list-item>
-              <h4 md-line>Mast Stage:</h4>
-              <p md-line> {{ lift.specifications.mastStage }} </p>
-            </md-list-item>
+  </div>
 
-          </md-list>
-        </div>
-      </div>
-    </div>
+  <div class="col-lg-4 col-md-6 col-sm-6 col-ms-6">
 
-  </md-card-content>
+    <md-card class="card">
+      <md-card-title>Purchased</md-card-title>
+      <md-card-content>
 
-</md-card>
+        <p><b>Date:</b> {{ lift.purchased.purchaseDate | date }}</p>
+        <p><b>Price:</b>${{ lift.purchased.purchasePrice }}</p>
+        <p><b>From:</b> {{ lift.purchased.purchasedFrom | default }}</p>
+
+      </md-card-content>
+    </md-card>
+
+  </div>
+
+</div>

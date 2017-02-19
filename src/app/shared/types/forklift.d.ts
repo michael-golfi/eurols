@@ -5,10 +5,40 @@ export interface Forklift {
     serialNumber: number;
     type: string;
 
+    available: boolean;
+
+    tires: Tire,
+
     purchased: PurchaseDetails;
     specifications: Specifications;
     history?: Repair | Maintenance;
 }
+
+interface TireSize {
+    outsideDiameter: number;
+    width: number;
+    insideDiameter: number;
+}
+
+interface Tire {
+    frontSize: TireSize;
+    backSize: TireSize;
+    type: TireType;
+    color: Color;
+}
+
+export type Color =
+    "Black"
+    | "White"
+    | "Grey"
+    | "Green";
+
+export type TireType =
+    "Cushion Smooth"
+    | "Cushion Traction"
+    | "Pneumatic Solid"
+    | "Pneumatic Air"
+    | "Polyurathane";
 
 interface PurchaseDetails {
     purchaseDate?: Date;
@@ -38,3 +68,4 @@ interface Maintenance {
     hours: number;
     description: string;
 }
+

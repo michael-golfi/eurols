@@ -13,8 +13,8 @@ export class SecretService {
     return {
       tenant: 'eurols.onmicrosoft.com',
       clientId: '8e624608-1635-4d40-87e8-b1c3c196d2bf',
-      redirectUri: window.location.origin + '/',
-      postLogoutRedirectUri: window.location.origin + '/'
+      redirectUri: window.location.origin + '/eurols',
+      postLogoutRedirectUri: window.location.origin + '/eurols'
     };
   }
 }

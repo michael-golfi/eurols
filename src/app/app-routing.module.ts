@@ -3,8 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SearchComponent } from './search/search.component';
-import { TransactionComponent } from './transaction/transaction.component';
-import { CustomerComponent } from './customer/customer.component';
 import { DetailsComponent } from './details/details.component';
 
 const routes: Routes = [
@@ -13,8 +11,6 @@ const routes: Routes = [
   // Visible Routes
   { path: 'dashboard', component: DashboardComponent },
   { path: 'inventory', component: SearchComponent },
-  { path: 'transaction', component: TransactionComponent },
-  { path: 'customer', component: CustomerComponent },
 
   // Non-Visible
   { path: 'forklift/:serialNumber', component: DetailsComponent },

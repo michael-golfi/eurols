@@ -2,7 +2,8 @@ import { Pipe, PipeTransform, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Subscription } from 'rxjs';
-import { Forklift } from './forklift';
+import { Forklift, Color, TireType } from '../shared/types/forklift';
+import { ForkliftService } from '../shared/forklift.service';
 
 @Pipe({ name: 'default' })
 export class DefaultPipe implements PipeTransform {
@@ -24,41 +25,20 @@ export class DetailsComponent implements OnInit {
   lift: Forklift;
 
   private subscribe: Subscription;
-  
-  constructor(private route: ActivatedRoute) { }
+
+  constructor(private forkliftService: ForkliftService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.subscribe = this.route.params.subscribe(params => {
       this.serialNumber = +params["serialNumber"];
-
-      // Load details for page
+      this.lift = this.forkliftService.getForklift(this.serialNumber);
     });
-
-    this.lift = {
-      make: "Toyota",
-      model: "7FGu25",
-      year: 2000,
-      serialNumber: 65186,
-      type: "Propane",
-
-      purchased: {
-        purchaseDate: new Date(2004, 8, 3),
-        purchasePrice: 15200.00,
-        purchasedFrom: "N/A",
-      },
-
-      specifications: {
-        approximateLoweredHeight: 0,
-        approximateMaxHeight: 0,
-        approximateWidth: 0,
-        approximateLength: 0,
-        capacity: 5000,
-        mastStage: 3,
-      }
-    }
   }
 
   ngOnDestroy() {
     this.subscribe.unsubscribe();
   }
+
+  getAvailableColor = () => (this.lift.available) ? "green" : "red";
+  toggleAvailability = () => this.lift.available = !this.lift.available;
 }
