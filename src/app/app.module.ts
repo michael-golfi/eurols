@@ -18,7 +18,7 @@ import { TransactionModule } from './transaction/transaction.module';
 import { DetailsModule } from './details/details.module';
 import { SharedModule } from './shared/shared.module';
 
-import { AdalModule } from 'ng2-adal/core';
+import { AdalModule, AdalService } from 'ng2-adal/core';
 
 @NgModule({
   declarations: [
@@ -43,7 +43,11 @@ import { AdalModule } from 'ng2-adal/core';
 
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [AdalService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+export class AppModule {
+
+}
+

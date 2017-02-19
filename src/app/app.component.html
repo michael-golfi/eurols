@@ -1,6 +1,6 @@
 <toolbar><div (click)="sidenav.toggle()" class="logo-button" logo><md-icon>menu</md-icon></div></toolbar>
 
-<md-sidenav-layout class="left-navigation">
+<md-sidenav-container class="left-navigation">
 
   <md-sidenav #sidenav mode="side" opened="true">
 
@@ -18,4 +18,4 @@
   <div class="content container-fluid">
     <router-outlet></router-outlet>
   </div>
-</md-sidenav-layout>
+</md-sidenav-container>
