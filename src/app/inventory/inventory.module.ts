@@ -7,7 +7,7 @@ import { MaterialModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 
-import { SearchComponent } from './search.component';
+import { InventoryComponent } from './inventory.component';
 
 @NgModule({
   imports: [
@@ -19,7 +19,7 @@ import { SearchComponent } from './search.component';
     RouterModule,
     SharedModule
   ],
-  declarations: [SearchComponent],
+  declarations: [InventoryComponent],
   providers: [],
 })
 export class SearchModule { }

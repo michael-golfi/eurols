@@ -7,19 +7,19 @@ import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/switchMap';
 import { Subject } from 'rxjs/Subject';
 
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, Params } from '@angular/router';
 
 import { Forklift, Color, TireType } from '../shared/types/forklift';
 import { ForkliftService } from '../shared/forklift.service';
 
 @Component({
-  selector: 'app-search',
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css'],
+  selector: 'inventory',
+  templateUrl: './inventory.component.html',
+  styleUrls: ['./inventory.component.css'],
   providers: []
 })
 
-export class SearchComponent {
+export class InventoryComponent {
   private searchTermStream = new Subject<string>();
 
   forklifts: Observable<Forklift[]>;
@@ -39,15 +39,15 @@ export class SearchComponent {
   search = (query: string) => this.searchTermStream.next(query);
 
   ngOnInit() {
+    this.route.queryParams.subscribe((params: Params) => {
+      this.query = params['q'];
+      this.searchTermStream.next(this.query);
+    });
+
     this.forklifts = this.searchTermStream
       .debounceTime(300)
       .distinctUntilChanged()
       .map((term: string) => this.forkliftService.getForklifts());
-  }
-
-  ngAfterViewInit() {
-    this.query = this.route.snapshot.queryParams['q'];
-    this.search(this.query);
   }
 
   getAvailableColor = (serialNumber) => this.forkliftService.isAvailable(serialNumber) ? "green" : "red";

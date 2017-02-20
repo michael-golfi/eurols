@@ -12,7 +12,7 @@ import { AppComponent } from './app.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 
 import { DashboardModule } from './dashboard/dashboard.module';
-import { SearchModule } from './search/search.module';
+import { SearchModule } from './inventory/inventory.module';
 import { DetailsModule } from './details/details.module';
 import { SharedModule } from './shared/shared.module';
 

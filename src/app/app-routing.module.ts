@@ -2,18 +2,20 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { SearchComponent } from './search/search.component';
+import { InventoryComponent } from './inventory/inventory.component';
 import { DetailsComponent } from './details/details.component';
+
+import { AuthguardService } from './shared/authguard.service';
 
 const routes: Routes = [
   { path: '', redirectTo: "/dashboard", pathMatch: 'full' },
   
   // Visible Routes
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'inventory', component: SearchComponent },
+  { path: 'inventory', component: InventoryComponent, canActivate: [AuthguardService] },
 
   // Non-Visible
-  { path: 'forklift/:serialNumber', component: DetailsComponent },
+  { path: 'forklift/:serialNumber', component: DetailsComponent, canActivate: [AuthguardService] },
 ];
 
 @NgModule({

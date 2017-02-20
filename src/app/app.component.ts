@@ -12,8 +12,8 @@ import { Observable } from 'rxjs/Observable';
 
 export class AppComponent implements OnInit {
   maxMediumWidth = 991;
-  isSideNavOpen = true;
-  sideNavMode = "side"
+  isSideNavOpen = (window.innerWidth > this.maxMediumWidth);
+  sideNavMode = (window.innerWidth > this.maxMediumWidth) ? 'side' : 'over'
 
   routes = [
     { path: '/dashboard', name: 'Dashboard', icon: 'dashboard' },

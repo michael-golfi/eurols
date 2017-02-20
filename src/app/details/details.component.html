@@ -83,5 +83,28 @@
     </md-card>
 
   </div>
+</div>
 
+<div class="row come-in">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-ms-12">
+
+    <md-card class="card">
+      <md-card-title>Repairs and Maintenance</md-card-title>
+      <md-card-content>
+
+      <ngx-datatable
+        class="material"
+        [rows]="lift.history"
+        [columns]="columns"
+        [columnMode]="'force'"
+        [headerHeight]="50"
+        [footerHeight]="50"
+        [rowHeight]="'auto'"
+        [limit]="10">
+      </ngx-datatable>
+
+      </md-card-content>
+    </md-card>
+
+  </div>
 </div>

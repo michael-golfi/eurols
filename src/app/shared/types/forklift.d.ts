@@ -11,7 +11,7 @@ export interface Forklift {
 
     purchased: PurchaseDetails;
     specifications: Specifications;
-    history?: Repair | Maintenance;
+    history: Repair[];
 }
 
 interface TireSize {
@@ -68,4 +68,3 @@ interface Maintenance {
     hours: number;
     description: string;
 }
-

@@ -1,9 +1,12 @@
 import { Pipe, PipeTransform, Component, OnInit } from '@angular/core';
+import { DatePipe } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 
 import { Subscription } from 'rxjs';
 import { Forklift, Color, TireType } from '../shared/types/forklift';
 import { ForkliftService } from '../shared/forklift.service';
+
+import { DataTableColumnDirective } from '@swimlane/ngx-datatable';
 
 @Pipe({ name: 'default' })
 export class DefaultPipe implements PipeTransform {
@@ -25,6 +28,12 @@ export class DetailsComponent implements OnInit {
   lift: Forklift;
 
   private subscribe: Subscription;
+  columns = [
+    { prop: "title" },
+    { prop: "date", pipe: new DatePipe("medium") },
+    { prop: "hours" },
+    { prop: "description" }
+  ]
 
   constructor(private forkliftService: ForkliftService, private route: ActivatedRoute) { }
 

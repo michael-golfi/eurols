@@ -6,11 +6,14 @@ import { MaterialModule } from '@angular/material';
 import { DetailsComponent } from './details.component';
 import { DefaultPipe } from './details.component';
 
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    MaterialModule
+    MaterialModule,
+    NgxDatatableModule
   ],
   declarations: [DetailsComponent, DefaultPipe]
 })
