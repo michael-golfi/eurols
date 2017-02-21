@@ -17,11 +17,15 @@ import { DetailsModule } from './details/details.module';
 import { SharedModule } from './shared/shared.module';
 
 import { AdalModule, AdalService } from 'ng2-adal/core';
+import { FrontpageComponent } from './frontpage/frontpage.component';
+import { AuthorizedComponent } from './authorized/authorized.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    FrontpageComponent,
+    AuthorizedComponent
   ],
   imports: [
     MaterialModule.forRoot(),

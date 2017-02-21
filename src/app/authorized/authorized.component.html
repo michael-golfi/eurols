@@ -1,0 +1,21 @@
+<toolbar><div (click)="sidenav.toggle()" class="logo-button" logo><md-icon>menu</md-icon></div></toolbar>
+
+<md-sidenav-container class="left-navigation">
+
+  <md-sidenav #sidenav [mode]="sideNavMode" [opened]="isSideNavOpen">
+
+    <md-nav-list>
+      <div *ngFor="let route of routes">
+        <md-list-item routerLink="{{ route.path }}" routerLinkActive="active">
+          <md-icon>{{ route.icon }}</md-icon>
+          <span class="nav-text">{{ route.name }}</span>
+        </md-list-item>
+      </div>
+    </md-nav-list>
+
+  </md-sidenav>
+
+  <div class="content container-fluid">
+    <router-outlet></router-outlet>
+  </div>
+</md-sidenav-container>

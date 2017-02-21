@@ -33,7 +33,7 @@
 
     <md-card class="card" *ngFor="let forklift of forklifts | async">
       <md-card-title class="underline" [style.border-bottom-color]="getAvailableColor(forklift.serialNumber)">
-        <a [routerLink]="['/forklift', forklift.serialNumber]">{{ forklift.make }} {{ forklift.model }}</a>
+        <a [routerLink]="['/inventory', forklift.serialNumber]">{{ forklift.make }} {{ forklift.model }}</a>
       </md-card-title>
       <img md-card-image [alt]="forklift.model" class="mat-card-image" src="assets/images/lift.png">
     </md-card>

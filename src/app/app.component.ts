@@ -15,23 +15,11 @@ export class AppComponent implements OnInit {
   isSideNavOpen = (window.innerWidth > this.maxMediumWidth);
   sideNavMode = (window.innerWidth > this.maxMediumWidth) ? 'side' : 'over'
 
-  routes = [
-    { path: '/dashboard', name: 'Dashboard', icon: 'dashboard' },
-    { path: '/inventory', name: 'Inventory', icon: 'assignment' },
-  ];
+  constructor(private adalService: AdalService, private secretService: SecretService) {
+    this.adalService.init(this.secretService.adalConfig);
+  }
 
   ngOnInit(): void {
     this.adalService.handleWindowCallback();
-    this.adalService.getUser();
-  }
-
-  constructor(private adalService: AdalService, private secretService: SecretService) {
-    this.adalService.init(this.secretService.adalConfig);
-    Observable.fromEvent(window, 'resize')
-      .debounceTime(200)
-      .subscribe(size => {
-        this.isSideNavOpen = (window.innerWidth > this.maxMediumWidth)
-        this.sideNavMode = (window.innerWidth > this.maxMediumWidth) ? 'side' : 'over'
-      })
   }
 }
