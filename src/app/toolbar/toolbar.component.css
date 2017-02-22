@@ -1,3 +1,11 @@
+* {
+  color: white;
+}
+
+md-input-container /deep/ .mat-input-underline {
+  border-color: white;
+}
+
 .logo {
   display: table-cell;
   vertical-align: middle;

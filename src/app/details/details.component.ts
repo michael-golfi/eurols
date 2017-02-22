@@ -48,6 +48,6 @@ export class DetailsComponent implements OnInit {
     this.subscribe.unsubscribe();
   }
 
-  getAvailableColor = () => (this.lift.available) ? "green" : "red";
+  getAvailableColor = () => (this.lift.available) ? "#81C784" : "#E57373";
   toggleAvailability = () => this.lift.available = !this.lift.available;
 }
