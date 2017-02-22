@@ -50,5 +50,5 @@ export class InventoryComponent {
       .map((term: string) => this.forkliftService.getForklifts());
   }
 
-  getAvailableColor = (serialNumber) => this.forkliftService.isAvailable(serialNumber) ? "green" : "red";
+  getAvailableColor = (serialNumber) => this.forkliftService.isAvailable(serialNumber) ? "#81C784" : "#E57373";
 }

@@ -14,14 +14,8 @@
 
   <button md-icon-button class="search-button" (click)="search(query)"><md-icon>search</md-icon></button>
 
-  <!--button md-icon-button [mdMenuTriggerFor]="menu">
-      <md-icon>more_vert</md-icon>
-    </button>
-
-  <md-menu #menu="mdMenu"-->
-  <button md-menu-item *ngIf="loggedIn" (click)="logout()">
+  <button md-icon-button *ngIf="loggedIn" (click)="logout()">
         <md-icon>exit_to_app</md-icon>
-        <span>Logout</span>
       </button>
   <!--/md-menu-->
 </md-toolbar>

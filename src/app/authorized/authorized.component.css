@@ -8,6 +8,10 @@ md-icon {
   margin-right: 20px;
 }
 
+.icon-white {
+  color: white;
+}
+
 md-sidenav {
   background-color: #fafafa;
   -webkit-box-shadow: none !important;
