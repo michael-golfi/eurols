@@ -1,4 +1,45 @@
-<div class="row come-in">
+<div class="mdl-grid">
+
+
+  <div class="mdl-cell mdl-cell--4-col mdl-cell--12-col-phone">
+
+      <mdl-card mdl-shadow="2">
+        <mdl-card-actions class="result-title underline" [style.border-bottom-color]="getAvailableColor(forklift.serialNumber)">> 
+          <span>{{ forklift.make }} {{ forklift.model }}</span>
+        </mdl-card-actions>
+      </mdl-card>
+
+  </div>
+
+  <div class="mdl-cell mdl-cell--4-col mdl-cell--12-col-phone">
+
+    <mdl-card mdl-shadow="2" >
+
+
+    </mdl-card>
+
+  </div>
+
+  <div class="mdl-cell mdl-cell--4-col mdl-cell--12-col-phone">
+
+    <mdl-card mdl-shadow="2" >
+
+
+    </mdl-card>
+
+  </div>
+
+  <div class="mdl-cell mdl-cell--12-col">
+
+    <mdl-card mdl-shadow="2" >
+
+
+    </mdl-card>
+
+  </div>
+</div>
+
+<!--div class="row come-in">
   <div class="col-lg-4 col-md-6 col-sm-6 col-ms-6">
 
     <md-card class="card">
@@ -92,19 +133,12 @@
       <md-card-title>Repairs and Maintenance</md-card-title>
       <md-card-content>
 
-      <ngx-datatable
-        class="material"
-        [rows]="lift.history"
-        [columns]="columns"
-        [columnMode]="'force'"
-        [headerHeight]="50"
-        [footerHeight]="50"
-        [rowHeight]="'auto'"
-        [limit]="10">
-      </ngx-datatable>
+        <ngx-datatable class="material" [rows]="lift.history" [columns]="columns" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+          [rowHeight]="'auto'" [limit]="10">
+          </ngx-datatable>
 
       </md-card-content>
     </md-card>
 
   </div>
-</div>
+</div-->

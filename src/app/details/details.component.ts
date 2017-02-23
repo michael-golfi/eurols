@@ -7,6 +7,7 @@ import { Forklift, Color, TireType } from '../shared/types/forklift';
 import { ForkliftService } from '../shared/forklift.service';
 
 import { DataTableColumnDirective } from '@swimlane/ngx-datatable';
+import { IMdlTableModelItem } from 'angular2-mdl';
 
 @Pipe({ name: 'default' })
 export class DefaultPipe implements PipeTransform {

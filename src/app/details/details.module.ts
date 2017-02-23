@@ -7,12 +7,13 @@ import { DetailsComponent } from './details.component';
 import { DefaultPipe } from './details.component';
 
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { MdlModule } from 'angular2-mdl';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    MaterialModule,
+    MdlModule,
     NgxDatatableModule
   ],
   declarations: [DetailsComponent, DefaultPipe]

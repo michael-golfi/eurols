@@ -1,21 +1,44 @@
-<toolbar><div (click)="sidenav.toggle()" class="logo-button" logo><md-icon class="icon-white">menu</md-icon></div></toolbar>
+<div class="demo-container" mdl-shadow="2">
+  <mdl-layout mdl-layout-fixed-header mdl-layout-fixed-drawer>
 
-<md-sidenav-container class="left-navigation">
+    <mdl-layout-header>
 
-  <md-sidenav #sidenav [mode]="sideNavMode" [opened]="isSideNavOpen">
+      <mdl-layout-header-row>
 
-    <md-nav-list>
-      <div *ngFor="let route of routes">
-        <md-list-item routerLink="{{ route.path }}" routerLinkActive="active">
-          <md-icon>{{ route.icon }}</md-icon>
+        <mdl-layout-title>EURO LS</mdl-layout-title>
+
+        <mdl-layout-spacer></mdl-layout-spacer>
+
+        <nav class="mdl-navigation">
+          <!--mdl-icon mdTooltip="No Connection" *ngIf="!(isConnected | async)">signal_wifi_off</mdl-icon-->
+
+          <mdl-textfield type="text" class="search-box" [(ngModel)]="serialNumber" pattern="-?[0-9]*(\.[0-9]+)?"
+            (keyup.enter)="search(serialNumber)" label="Serial Number" maxlength="12" floating-label>
+            </mdl-textfield>
+            <button mdl-button mdl-colored="accent" class="signout" (click)="logout()"><mdl-icon>exit_to_app</mdl-icon></button>
+        </nav>
+
+      </mdl-layout-header-row>
+
+    </mdl-layout-header>
+
+    <mdl-layout-drawer>
+
+      <mdl-layout-title>EURO LS</mdl-layout-title>
+
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" *ngFor="let route of routes" routerLink="{{ route.path }}" routerLinkActive="active">
+          <mdl-icon>{{ route.icon }}</mdl-icon>
           <span class="nav-text">{{ route.name }}</span>
-        </md-list-item>
-      </div>
-    </md-nav-list>
+        </a>
+      </nav>
 
-  </md-sidenav>
+    </mdl-layout-drawer>
 
-  <div class="content container-fluid">
-    <router-outlet></router-outlet>
-  </div>
-</md-sidenav-container>
+    <mdl-layout-content>
+
+      <router-outlet></router-outlet>
+
+    </mdl-layout-content>
+  </mdl-layout>
+</div>

@@ -1,43 +1,46 @@
-<div class="row">
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--12-col">
 
-  <div class="col-lg-12 col-md-12 col-ms-12 col-sm-12 col-xs-12">
+    <mdl-card mdl-shadow="2" class="search-box">
 
-    <md-card class="search-card">
-      <md-card-header>
-        <md-input-container class="search">
-          <input mdInput #term placeholder="Search" [(ngModel)]="query" (keyup)="search(query)">
-        </md-input-container>
-        <button md-icon-button class="search-button"><md-icon>search</md-icon></button>
-      </md-card-header>
-    </md-card>
+      <mdl-card-actions mdl-card-border>
+
+        <mdl-card-title mdl-card-expand>
+          <mdl-textfield class="search-box" type="text" label="Search" [(ngModel)]="query" (keyup)="search(query)" placeholder="Search for a forklift"
+            autofocus></mdl-textfield>
+            <button mdl-button mdl-colored mdl-ripple fab><mdl-icon>search</mdl-icon></button>
+        </mdl-card-title>
+
+      </mdl-card-actions>
+    </mdl-card>
 
   </div>
 
-</div>
-<div class="row come-in">
+  <div class="mdl-cell mdl-cell--3-col mdl-cell--12-col-phone">
 
-  <div class="col-lg-3 col-md-3 col-ms-3 col-sm-3 col-xs-12">
+    <mdl-card mdl-shadow="2" class="facet" *ngFor="let facet of facets">
+      <mdl-card-title>{{facet.name}}</mdl-card-title>
 
-    <md-card *ngFor="let facet of facets" class="facet">
-      <md-card-header class="facet-title">{{facet.name}}</md-card-header>
-      <md-card-content>
+      <mdl-card-supporting-text>
         <li *ngFor="let option of facet.options">
           <a>{{ option }}</a>
         </li>
-      </md-card-content>
-    </md-card>
+      </mdl-card-supporting-text>
+
+    </mdl-card>
 
   </div>
+  <div class="mdl-cell mdl-cell--9-col mdl-cell--12-col-phone">
 
-  <div class="col-lg-9 col-md-9 col-ms-9 col-sm-9 col-xs-12">
+    <div class="mdl-grid result-grid">
 
-    <md-card class="card" *ngFor="let forklift of forklifts | async">
-      <md-card-title class="underline" [style.border-bottom-color]="getAvailableColor(forklift.serialNumber)">
-        <a [routerLink]="['/inventory', forklift.serialNumber]">{{ forklift.make }} {{ forklift.model }}</a>
-      </md-card-title>
-      <img md-card-image [alt]="forklift.model" class="mat-card-image" src="assets/images/lift.png">
-    </md-card>
+      <mdl-card mdl-shadow="2" class="result mdl-cell mdl-cell--12-col-phone" *ngFor="let forklift of forklifts | async">
+        <mdl-card-actions [routerLink]="['/inventory', forklift.serialNumber]" class="result-title underline" [style.border-top-color]="getAvailableColor(forklift.serialNumber)" [style.border-bottom-color]="getAvailableColor(forklift.serialNumber)">> 
+          <span>{{ forklift.make }} {{ forklift.model }}</span>
+        </mdl-card-actions>
+      </mdl-card>
+
+    </div>
 
   </div>
-
 </div>

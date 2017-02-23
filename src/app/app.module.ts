@@ -6,10 +6,9 @@ import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 
 import { RouterModule } from '@angular/router';
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './routing.module';
 
 import { AppComponent } from './app.component';
-import { ToolbarComponent } from './toolbar/toolbar.component';
 
 import { DashboardModule } from './dashboard/dashboard.module';
 import { SearchModule } from './inventory/inventory.module';
@@ -20,18 +19,22 @@ import { AdalModule, AdalService } from 'ng2-adal/core';
 import { FrontpageComponent } from './frontpage/frontpage.component';
 import { AuthorizedComponent } from './authorized/authorized.component';
 
+import { MdlModule } from 'angular2-mdl';
+
 @NgModule({
   declarations: [
     AppComponent,
-    ToolbarComponent,
     FrontpageComponent,
     AuthorizedComponent
   ],
   imports: [
     MaterialModule.forRoot(),
+
     BrowserModule,
     FormsModule,
     HttpModule,
+    
+    MdlModule,
 
     // Declare modules needed.
     DashboardModule,

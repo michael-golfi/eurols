@@ -9,15 +9,18 @@ import { SharedModule } from '../shared/shared.module';
 
 import { InventoryComponent } from './inventory.component';
 
+import { MdlModule } from 'angular2-mdl';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    MaterialModule.forRoot(),
     HttpModule,
     JsonpModule,
     RouterModule,
-    SharedModule
+    SharedModule,
+
+    MdlModule
   ],
   declarations: [InventoryComponent],
   providers: [],

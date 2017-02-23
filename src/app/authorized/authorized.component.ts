@@ -10,27 +10,30 @@ import { AdalService } from 'ng2-adal/core';
   styleUrls: ['./authorized.component.css']
 })
 export class AuthorizedComponent implements OnInit {
-  maxMediumWidth = 991;
-  isSideNavOpen = (window.innerWidth > this.maxMediumWidth);
-  sideNavMode = (window.innerWidth > this.maxMediumWidth) ? 'side' : 'over'
+  isConnected: Observable<boolean>;
+  query: string;
 
   routes = [
     { path: '/dashboard', name: 'Dashboard', icon: 'dashboard' },
     { path: '/inventory', name: 'Inventory', icon: 'assignment' },
   ];
 
-  constructor(private adalService: AdalService, router: Router) {
+  constructor(private adalService: AdalService, private router: Router) {
     if (!adalService.userInfo.isAuthenticated)
       router.navigate(['login'])
   }
 
   ngOnInit() {
     this.adalService.handleWindowCallback();
-    Observable.fromEvent(window, 'resize')
-      .debounceTime(200)
-      .subscribe(size => {
-        this.isSideNavOpen = (window.innerWidth > this.maxMediumWidth)
-        this.sideNavMode = (window.innerWidth > this.maxMediumWidth) ? 'side' : 'over'
-      });
+    this.isConnected = Observable.merge(
+      Observable.of(navigator.onLine),
+      Observable.fromEvent(window, 'online').map(() => true),
+      Observable.fromEvent(window, 'offline').map(() => false));
   }
+
+  public login = () => this.adalService.login();
+  public logout = () => this.adalService.logOut();
+  public search = (query: string) => this.router.navigate(['/inventory'], {
+    queryParams: { "q": query }
+  });
 }
