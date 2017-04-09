@@ -17,8 +17,7 @@ const routes: Routes = [
       { path: 'inventory', component: InventoryComponent },
       { path: 'inventory/:serialNumber', component: DetailsComponent }
     ]
-  },
-  { path: '**', redirectTo: '/login' },
+  }
 ];
 
 @NgModule({

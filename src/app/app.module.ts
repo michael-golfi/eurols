@@ -20,6 +20,7 @@ import { FrontpageComponent } from './frontpage/frontpage.component';
 import { AuthorizedComponent } from './authorized/authorized.component';
 
 import { MdlModule } from 'angular2-mdl';
+import { AgmCoreModule } from 'angular2-google-maps/core';
 
 @NgModule({
   declarations: [
@@ -33,8 +34,11 @@ import { MdlModule } from 'angular2-mdl';
     BrowserModule,
     FormsModule,
     HttpModule,
-    
+
     MdlModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDI-tYIz68dgH1cbgMRIvgXpVPCoGLvRE8'
+    }),
 
     // Declare modules needed.
     DashboardModule,
